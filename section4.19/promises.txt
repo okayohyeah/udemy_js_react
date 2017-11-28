@@ -1,0 +1,7 @@
+PROMISES:
+	JavaScript objects which can be returned synchronously from an asynchronous function
+
+Promises can have 3 different states:
+	Pending: 		incomplete
+	Fulfilled: 	complete
+	Rejected: 	failed
