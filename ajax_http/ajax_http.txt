@@ -1,0 +1,17 @@
+HTTP Methods:
+
+GET  - pulls
+POST - creates
+DELETE - removes
+
+HTTP Status Codes:
+100 level: 	hold on
+							request was received and understood
+200 level: 	here you go
+							action requested by client was received, understood, accepted and processed successfully
+300 level: 	go away
+							client must take additional action to complete the request, often used for redirection
+400 level: 	you messed up
+							error seems to have been caused by the client
+500 level: 	server's messed up
+							server failed to fulfill the a valid request
