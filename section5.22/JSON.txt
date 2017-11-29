@@ -1,0 +1,20 @@
+JSON
+	Keys - 		a string, can be wrapped in " " or not 
+						best to keep it consisent across an object
+	Values -	can be a string, number, boolean exp, array or object
+		Together they make up a KEY VALUE PAIR and are separated by a comma: 
+			"key": "string value"
+
+let json1 =
+{
+	"name": "Kathy",
+	"age": 16,
+	"ocean": {  // has values of another object
+							"chosen": true,
+							"voyaged": false
+	}
+};
+
+to access a value in the JSON:
+
+console.log(json1.name);	// Kathy
