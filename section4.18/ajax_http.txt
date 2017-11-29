@@ -1,4 +1,4 @@
-HTTP Methods:
+.HTTP Methods:
 
 GET  - pulls
 POST - creates
