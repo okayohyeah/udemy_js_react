@@ -18,3 +18,9 @@ let json1 =
 to access a value in the JSON:
 
 console.log(json1.name);	// Kathy
+
+
+CONVERTING JSON (into a string and back into a JSON object)
+	JSON functions:
+		JSON.stringify()	- turn JSON into a string
+		JSON.parse() -			turn a string in JSON
