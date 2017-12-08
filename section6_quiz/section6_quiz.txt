@@ -1,0 +1,85 @@
+SECTION 6 QUIZ
+1. What does DOM stand for?
+
+	A: Document Object Model
+
+2. As you work with the DOM, what variable do you use to represent it in your JavaScript? 
+
+	A: document
+
+3. How would you not select an element that looks like:
+<div id="unique" class="selected">Hello!</div>
+
+	A: document.querySelector('selected')   // this is not proper syntax, it should include a "." before the word selected to indicate a class.
+
+			Other choices: document.getElementById('unique'), document.getElementByClassName('selected')[0], document.querySelectorAll('#unique')[0]
+
+4. What function should be called here to trigger the click event?
+
+document.getElementById('button').________('click', function(event) {
+  document.write('You clicked the button!');
+});
+
+	A: addEventListener
+
+5. Which of the following is true about callbacks?
+
+	A: A callback is a plain JavaScript function passed to some method as argument or option
+
+		Other choices: All callbacks are just event handlers, called to give the user a chance to react when a certain state is triggered; Callbacks have to be anonymous functions, AKA, unnamed functions; All of these(except none); None of these
+
+6. Which HTTP response code indicates a succesful response?
+	
+	A: 200-level
+
+7. When using JSON, values are accessed by
+
+	A: keys
+
+8. How would you make the following code print: "Joe's Toyota is from 2005"
+
+var car = {
+  brand: "Toyota",
+  year: 2005
+};
+
+function printCar(owner) {
+  console.log(owner + "'s " + this.brand + " is from " + this.year);
+}
+
+	A: printCar.call(car, "Joe")
+
+		Other choices: 	var x = printCar.bind(car);
+										"Joe".x();
+
+										printCar.call("Joe", car.brand, car.year);
+
+										printCar.call("Joe", [car.brand, car.year]);
+
+9. True or false: a promise that has not resolved returns a 100-level response.
+
+	A: False
+
+10. How would you access the value "foo" from the following JSON?
+
+x = {
+  "Link": [
+    [
+      "url1",
+      {
+        "rel": "next"
+      }
+    ],
+    [
+      "url2",
+      {
+        "rel": "foo",
+        "bar": "baz"
+      }
+    ]
+  ]
+}
+
+	A: x.Link[1].[1].rel
+
+		Other choices: x.Link.url2.rel; x.Link[1].url2.rel; x[2].rel; x.Link[0].[1].url2.rel
