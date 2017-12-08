@@ -1,0 +1,88 @@
+SECTION 6:
+Scope & the Variable "this"
+
+2 Types of Scope:
+	1. Global: variables defined outside a function
+
+	2. Local: variables defined inside a function
+
+"this" variable: refers to the context of a function, object, or variable that uses it. 
+
+The "call" method: 
+	-core function invocation primitive. 
+	-when you call a function, you are really calling the "call" function on that function.
+
+	ex:
+		function greet(thing) {
+			console.log(this + " says greetings, " + thing);
+		}
+
+		greet.call("Cami", "earthlings")  //=> Cami says greetings, earthlings
+
+			'call' method that passing in "Cami" and "earthlings". Breaking down the 'call' method is called 'desugaring'
+	
+	ex2:
+		var person = {
+			name: "Samantha",
+			greet: 	function(thing) {
+								console.log(this.name + " says greetings, " + thing);
+							}
+		}
+
+			"person" object
+			"greet" function is a member function of the "person" object
+
+			var "person" with the "name": Samantha and "greet "function defined.
+
+		person.greet("neighbor");
+		// Samantha says greetings, neighbor
+
+			call person.greet and pass in "neighbor", 
+
+			it actually desugars to:
+
+					person.greet.call(person, "neighbor");  //"this" = "person"
+
+								the first paramater of "call" is the value of "this". You set the value of "this" to anything you want when you use the "call" method
+
+The "apply" method: 
+	similiar to "call" method except it takes in an array after the first paramater "this"
+
+	ex:
+		function greet(thing1, thing2) {
+			console.log(this + " says greetings, " + thing1);
+			console.log("But " + thing2 + " doesn't like " + this);
+		}
+
+		greet.call("Samantha", ["Maya", "Angelina"]);
+		// Samantha says greetings, Maya
+		// But Angelina doesn't like Samantha
+
+			it actually desugars to:
+
+					greet.call(this, [thing1, thing2]);  //"this" = "Samantha", and the second paramater is an array of ["thing1, "thing2"] where "thing1" = "Maya" & "thing2" = "Angelina"
+
+The "bind" method:
+	it sets the context of something to the provided value
+		"bind" set "this" to something.
+
+	ex:
+		function greet(thing1, thing2) {
+			console.log(this + " says greetings, " + thing1);
+			console.log("But " + thing2 + " doesn't like " + this);
+		}
+
+		var boundGreeting = greet.bind("Noah");  // new function
+			"Noah" is applied to "this"
+
+		boundGreeting("Christian", "Ben");
+		// Noah says greetings, Christian
+		// But Ben doesn't like Noah
+
+
+https://medium.com/@omergoldberg/javascript-call-apply-and-bind-e5c27301f7bb
+
+https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/this
+
+https://codeplanet.io/javascript-apply-vs-call-vs-bind/
+
