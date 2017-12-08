@@ -1,4 +1,5 @@
 var x = 'hello, world!'; // this is in the global scope!
+// in console type in x get value back since it is in global scope
 
 ////////////////////
 
