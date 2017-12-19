@@ -1,0 +1,31 @@
+SECTION 7.1 QUIZ
+1. What is the difference between const and let?
+	A: const turns variables into constants, while let variables can be reassigned
+
+2. What is the output of this function?
+	
+function keyPrinter() {
+	const key = 'white';
+	if(true) {
+		const key = 'black';
+	}
+	console.log(key);
+}
+
+	A: white
+
+3. What does this function output?
+
+function newPrinter() {
+	let x = 3.14;
+	{
+		console.log(x);
+		lex x = 1.41;
+	}
+}
+
+	A: Neither, this causes an error
+
+4. What is the difference between transpiling and polyfilling?
+
+	A: Polyfilling fills in parts of your "futuristic" code so that it works for past and present browswers, and transpiling converts futuristic code into code that worked in the past and present.
