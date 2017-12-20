@@ -1,5 +1,6 @@
 SECTION 7.1 QUIZ
 1. What is the difference between const and let?
+
 	A: const turns variables into constants, while let variables can be reassigned
 
 2. What is the output of this function?

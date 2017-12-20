@@ -1,0 +1,61 @@
+Arrow Functions
+
+Example:
+
+	Traditional way to write function:
+
+		function add(x,y {
+			return x + y;
+		}
+
+	As an Arrow Function:
+		
+		var add = (x,y) => x + y;
+
+			declaring a value and assigning an anonymous function to it	
+			
+			3 parts of the example:
+				1. the variable add is a function. 
+				2. (x,y) is declaring the body part of the function
+				3. the => arrow points to the content there, which is actually returned
+
+			same thing as:
+
+				var add = (x,y) => {
+					return x + y;
+				}
+
+	Key things about Arrow Functions:
+
+		* They are always function expressions
+		* They are anonymous
+		* The redefine 'this'
+				'this' binding is lexical/static instead of dynamic
+
+				Example: An object with a function that has an event listener
+
+				* The context of 'this' would change inside the event listener
+					in order to have access to the object via 'this', you would have 
+					to make a new variable (ie.'self') that points to 'this' outside of the callback
+						* if you had 'this' inside the btn.addEventListener, click and anonymous function, 'this' would refer to the event inside that small scope there rather than the larger scope of the makeRequest function in the 'control' object.
+
+				var control = {
+					makeRequest: function(...) {
+					 	var self = this;
+					 	btn.addEventListener('click', function() {
+					 		self.doSomething(...);
+					 	});
+					}
+				};
+
+				* With Arrow Functions, 'this' doesn't change context and stays the same/is static
+
+				var control = {
+					makeRequest(...) {
+						btn.addEventListener('click', () => {
+							this.doSomething(...);
+						});
+					}
+				}
+
+	

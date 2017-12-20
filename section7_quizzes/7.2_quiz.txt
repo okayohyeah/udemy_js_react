@@ -1,0 +1,70 @@
+SECTION 7.1 QUIZ
+
+1. What will each of these function calls return, given function add?
+
+	function add(a=5, b=10) {
+		return a + b;
+	}
+
+	A: add(12,8) 					// 20
+	B: add(undefined,5)		// 10
+	C: add()							// 15
+	D: add(4)							// 14
+
+2. What does this code do?
+
+	let a = 15;
+	let b = 5;
+	[a, b] = [b, a];
+
+	A: swaps the value in a and b
+
+		(other answers: Creates an array that contains a and b
+										Assigns an array containing a and b to a new array, resetting the values)
+
+3. What is the output of these lines of code?
+
+	var a = `foo ${b}`;
+	var b = `bar ${a}`; 
+
+	console.log(a); 
+
+	A: foo undefined
+
+		(other answers: Nothing, this produces an error
+										foo bar foo null
+										foo bar foo undefined)
+
+4. What is the output of these lines of code?
+
+	var a = `foo ${b}`;
+	var b = `bar ${a}`;
+
+	console.log(b);
+
+	A: bar food undefined 
+
+		(other answers: bar undefined
+										foo undefined
+										bar foo null
+										Nothing, this produces an error)
+
+5. What is the output of this function?
+
+	(function() {
+		return [
+			(() => this.x).bind({ x: 'hello'})(),
+			(() => this.x)()
+		]
+	})call({ x: 'world' });
+
+	A: ['world', 'world']   	// because arrow functions have a lexical/static binding,
+															 'this' is unchangeable, so the bind() function does
+															 nothing.
+
+	other answers: 	['hello', 'world']
+									['world', 'hello']
+									['hello', 'hello']
+									[undefined, undefined]
+									['hello', undefined]
+									Error 
