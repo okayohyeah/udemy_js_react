@@ -1,0 +1,35 @@
+2 Types of LITERALS:
+
+1. Object Literals
+	Provide shorthand syntax that initialize properties of variables and they define concise functions
+
+2. Template Literals: 
+	aka String literals. They have the type string 
+
+	ex 1:
+		var name = "Cassidy";
+		var greet = "Hi, " + name + "!";
+		console.log(greet); // Hi, Cassidy!
+
+		var name = "Cassidy";
+		var greet = `Hi, ${name}!`;
+		console.log(greet); // Hi, Cassidy!
+
+	ex 2:
+		let a = 5;
+		let b = 10;
+		function multiply(a, b) {
+			return a*b;
+		}
+		console.log(`Let's add them! a and b are ${a+b}.`);	// Let's add them! a and b are 15.
+		console.log(`Let's multiply them! a and b are ${multiply(a,b)}.`); // Let's multiply them! a and b are 50.
+
+	ex 3:
+		function capitalize(s) {
+			return s.toUpperCase();
+		};
+		let you = 'class';
+		let t = `A very ${capitalize('big') hello
+		to you, ${capitalize(`my ${you}!`)}`;
+		console.log(t);	// A very BIG hello
+											 to you, MY BIG CLASS!
