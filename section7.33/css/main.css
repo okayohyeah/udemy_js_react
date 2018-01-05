@@ -1,0 +1,52 @@
+html {
+    height: 100%;
+}
+
+body { 
+    color: #FFFFEA;
+
+    /* The image used */
+    background-image: url(../images/rover.jpg);
+
+    /* Full height */
+    height: 100%; 
+
+    /* Center and scale the image nicely */
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+    background-color: #464646;
+
+    
+}
+
+nav {
+	font-family: 'Graduate', cursive;
+}
+
+.navbar {
+	background-color: #7B5F4B;
+	border: none;
+	border-radius: 0;
+}
+
+main {
+   padding-top: 50px;
+   font-family: Quicksand, sans-serif;
+}
+
+.text-about {
+	padding-top: 50px;
+	padding-left: 200px;
+	padding-right: 200px;
+	font-size: 25px;
+}
+
+#rover {
+    width: 300px;
+}
+
+#camera {
+    width: 300px;
+}
