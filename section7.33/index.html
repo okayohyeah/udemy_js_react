@@ -25,47 +25,34 @@
 	<div class="container-fluid">
 
 		<div class="row text-center">
-			<p class="lead">View Images of Mars by:</p>
+			<p class="lead">View Images of Mars</p>
 		</div>
 
 		<div class="row">
-			<div class="col-xs-4 text-center">
+			<div class="col-xs-6">
 			Choose Rover 
-			<select class="form-control">
+			<select class="form-control" id="rover" onChange="changeCameras(this.value);">
+				<option value="" disabled selected>Select</option>
 				<option value="curiosity" id="user_rover_name">Curiosity</option>
 				<option value="opportunity" id="user_rover_name">Opportunity</option>
 				<option value="spirit" id="user_rover_name">Spirit</option>
 			</select>
 			</div>
 
-			<div class="col-xs-4 text-center">
-			Choose Camera Name
-			<select class="form-control">
-			  <option value="fhaz" id="user_camera_name">Front Hazard Avoidance Camera</option>
-			  <option value="rhaz">Rear Hazard Avoidance Camera</option>
-			  <option value="mast">Mast Camera</option>
-			  <option value="chemcam">Chemistry and Camera Complex</option>
-			  <option value="mahli">Mars Hand Lens Imager</option>
-			  <option value="mardi">Mars Descent Imager</option>
-			  <option value="navcam">Navigation Camera</option>
-			  <option value="pancam">Panoramic Camera</option>
-			  <option value="minites">Miniature Thermal Emission Sepectrometer</option>
+			<div class="col-xs-6">
+			Choose Camera
+			<select class="form-control" id="camera">
+				<option value="" disabled selected>Select</option>
 			</select>
-			</div>
-
-			<div class="col-xs-4 text-center">
-			Choose by Sol (Martian Day)
-			<input type="text number" id="user_sol" class="form-control" placeholder="0">
-			<button class="btn btn-default" onClick="getUserChoice()" type="submit">Submit</button>
 			</div>
 
 		</div>
 		
 		<div class="row col-xs-12 text-center text-about">
-			<p>NASA has images and videos of Mars from three of their rovers:</br>
+			<p>NASA has images Mars from three of their rovers:</br>
 			 <span class="font-effect-fire">Opportunity</span>, <span class="font-effect-fire">Spirit</span> and <span class="font-effect-fire">Curiosity</span>.</p>
 
-			<p><span class="font-effect-fire">Spirit</span> is inactive, but its images and videos endure, and <span class="font-effect-fire">Opportunity</span> and <span class="font-effect-fire">Curiosity</span> are still actively collecting data and evidence for current NASA studies.</p>
+			<p><span class="font-effect-fire">Spirit</span> is inactive, but its images endure, and <span class="font-effect-fire">Opportunity</span> and <span class="font-effect-fire">Curiosity</span> are still actively collecting data and evidence for current NASA studies.</p>
 		</div>
 
 	</div>

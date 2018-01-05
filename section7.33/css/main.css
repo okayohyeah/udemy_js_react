@@ -3,7 +3,7 @@ html {
 }
 
 body { 
-		color: #FFFFEA;
+    color: #FFFFEA;
 
     /* The image used */
     background-image: url(../images/rover.jpg);
@@ -41,4 +41,12 @@ main {
 	padding-left: 200px;
 	padding-right: 200px;
 	font-size: 25px;
+}
+
+#rover {
+    width: 300px;
+}
+
+#camera {
+    width: 300px;
 }
