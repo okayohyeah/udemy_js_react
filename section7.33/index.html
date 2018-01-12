@@ -1,4 +1,5 @@
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
 	<title>NASA Mars Image Search</title>
 	<meta charset="utf-8">
@@ -11,7 +12,7 @@
 </head>
 <body>
 
-<nav class="navbar navbar-default .navbar-fixed-top font-effect-neon text-center">
+<nav class="navbar navbar-default .navbar-fixed-top font-effect-neon">
   <div class="container-fluid">
     <div class="navbar-header ">
       <a class="navbar-brand" href="#">
@@ -25,28 +26,33 @@
 	<div class="container-fluid">
 
 		<div class="row text-center">
-			<p class="lead">View Images of Mars</p>
+			<p class="lead">View Images of Mars taken by NASA's rovers</p>
 		</div>
 
-		<div class="row">
-			<div class="col-xs-6">
-			Choose Rover 
-			<select class="form-control" id="rover" onChange="changeCameras(this.value);">
-				<option value="" disabled selected>Select</option>
-				<option value="curiosity" id="user_rover_name">Curiosity</option>
-				<option value="opportunity" id="user_rover_name">Opportunity</option>
-				<option value="spirit" id="user_rover_name">Spirit</option>
-			</select>
+		<form>
+		  <div class="form-group">
+	      <select class="form-control rover-camera" id="rover" onChange="changeCameras(this.value);" required="">
+					<option value="" disabled selected>Select Rover</option>
+					<option value="curiosity" id="user_rover_name">Curiosity</option>
+					<option value="opportunity" id="user_rover_name">Opportunity</option>
+					<option value="spirit" id="user_rover_name">Spirit</option>
+				</select>
+		  </div>
+		  <div class="form-group">
+	    	<select class="form-control rover-camera" id="camera">
+		    	<option value="" disabled selected required>Select Camera</option>
+	      </select>
+		  </div>
+		  <div class="sol-label form-group">
+		  	Select Martian sol day
+		  </div>
+		  <div class="form-group">
+		    <input class="input-sol form-control " id="focusedInput appendedInput" placeholder="Enter number" type="text" required>
+		  </div>
+		  <div class="form-group">
+		  	<button class="btn btn-warning btn-large" id="submit" type="submit">Submit</button>
 			</div>
-
-			<div class="col-xs-6">
-			Choose Camera
-			<select class="form-control" id="camera">
-				<option value="" disabled selected>Select</option>
-			</select>
-			</div>
-
-		</div>
+		</form>
 		
 		<div class="row col-xs-12 text-center text-about">
 			<p>NASA has images Mars from three of their rovers:</br>
