@@ -17,7 +17,7 @@ body {
   background-attachment: fixed;
   background-size: cover;
   background-color: #464646;
-  text-shadow: 2px 2px 4px #000000
+  text-shadow: 2px 2px 4px #000000;
 }
 
 nav {
@@ -45,9 +45,14 @@ main {
 /* Validation Warning */
 .warning {
   text-align: center;
-  color: #FFC300;
+  color: #FF6933;
   font-size:1.25em;
   vertical-align:middle;
+  background-color: #FFE5DD;
+  padding: 4px;
+  border: #CCB7B1 solid 1px;
+  border-radius: 5px;
+
 }
 
 /* Width of Select Drop-Down List */
