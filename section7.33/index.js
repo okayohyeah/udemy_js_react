@@ -1,4 +1,5 @@
 var cameras_by_rovers = {
+
 	curiosity: [
 		{name: "fhaz", full_name: "Front Hazard Avoidance Camera"},
 		{name: "rhaz", full_name: "Rear Hazard Avoidance Camera"},
@@ -26,6 +27,7 @@ var cameras_by_rovers = {
 
 // Camera Select Drop Down List 
 function changeCameras(value) {
+
 	if (value.length == 0) {
 		document.getElementById("camera").innerHTML = "<option></option>";
 	} else {
@@ -80,7 +82,6 @@ function validateChoices() {
 }
 
 function getUserChoice() {
-	console.log(user_rover, user_camera, user_sol);
 
 	 // Validation - User Selection and Input 
   validateChoices();
@@ -92,12 +93,12 @@ function getUserChoice() {
 		.then(response_obj => {
 				if (response_obj.status === 200) {
 					return response_obj.json();
-					console.log(response_obj);
-				} else {
-					var error = new Error(response_obj.statusText || response_obj.status);
-					error.response_obj = response_obj;
-					throw error;
-				}
+				} 
+				// else {
+				// 	var error = new Error(response_obj.statusText || response_obj.status);
+				// 	error.response_obj = response_obj;
+				// 	throw error;
+				// }
 		})
 		.then(obj => {
 			// check object returned
