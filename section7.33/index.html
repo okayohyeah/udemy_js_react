@@ -30,14 +30,20 @@
 		</div>
 
 		<form>
+			<div class="form-group">
+				<span class="warning" id="rover-warning"></span>
+			</div>
 		  <div class="form-group">
 	      <select class="form-control rover-camera" id="rover" onChange="changeCameras(this.value);" required="">
 					<option value="" disabled selected>Select Rover</option>
-					<option value="curiosity" id="user_rover_name">Curiosity</option>
-					<option value="opportunity" id="user_rover_name">Opportunity</option>
-					<option value="spirit" id="user_rover_name">Spirit</option>
+					<option value="curiosity">Curiosity</option>
+					<option value="opportunity">Opportunity</option>
+					<option value="spirit">Spirit</option>
 				</select>
 		  </div>
+		  <div class="form-group">
+	      <span class="warning" id="camera-warning"></span>
+			</div>
 		  <div class="form-group">
 	    	<select class="form-control rover-camera" id="camera">
 		    	<option value="" disabled selected required>Select Camera</option>
@@ -47,10 +53,13 @@
 		  	Select Martian sol day
 		  </div>
 		  <div class="form-group">
-		    <input class="input-sol form-control " id="focusedInput appendedInput" placeholder="Enter number" type="text" required>
+		    <span class="warning" id="sol-warning"></span>
+			</div>
+		  <div class="form-group">
+		    <input class="input-sol form-control" id="sol" placeholder="Enter number" type="number" min="0">
 		  </div>
 		  <div class="form-group">
-		  	<button class="btn btn-warning btn-large" id="submit" type="submit">Submit</button>
+		  	<button class="btn btn-warning btn-large" id="submit" type="button" onClick="getUserChoice()">Get Images</button>
 			</div>
 		</form>
 		

@@ -1,4 +1,4 @@
-var rovers_by_cameras = {
+var cameras_by_rovers = {
 	curiosity: [
 		{name: "fhaz", full_name: "Front Hazard Avoidance Camera"},
 		{name: "rhaz", full_name: "Rear Hazard Avoidance Camera"},
@@ -24,37 +24,86 @@ var rovers_by_cameras = {
 	]
 }
 
+// Camera Select Drop Down List 
 function changeCameras(value) {
 	if (value.length == 0) {
 		document.getElementById("camera").innerHTML = "<option></option>";
 	} else {
-		var cameraOptions = "";
-		for (camera_id in rovers_by_cameras[value]) {
-			cameraOptions += "<option value='" + rovers_by_cameras[value][camera_id].name + 
-			"' id='user_camera_name'>"+ rovers_by_cameras[value][camera_id].full_name + "</option>"
+		var cameraOptions = "<option value='' disabled selected required>Select Camera</option>";
+		for (camera_id in cameras_by_rovers[value]) {
+			cameraOptions += "<option value='" + cameras_by_rovers[value][camera_id].name + 
+			"' >"+ cameras_by_rovers[value][camera_id].full_name + "</option>"
 		}
 		document.getElementById("camera").innerHTML = cameraOptions;
 	}
 }
 
-function getUserChoice() {
-	var rover = document.getElementById("user_rover_name").value;
-	var camera = document.getElementById("user_camera_name").value;
+var isValid;
+var user_rover;
+var user_camera;
+var user_sol;
 
-	fetch("https://api.nasa.gov/mars-photos/api/v1/rovers/" + rover + "/photos?sol=" + sol + "&camera=" + camera + "&api_key=DEMO_KE")
-	.then(response => {
-			if (response.status === 200) {
-				return response.json();
-			} else {
-				var error = new Error(response.statusText || response.status);
-				error.response = response;
-				throw error;
-			}
-	})
-	.then( obj => {
-		// check object returned
-		console.log(obj);
-		// TODO: DO something with object
-	})
+function validateChoices() {
+
+	isValid = true;
+	user_rover = document.getElementById("rover").value;
+	user_camera = document.getElementById("camera").value;
+	user_sol = document.getElementById("sol").value;
+
+	if (user_rover == "") {
+		document.getElementById("rover-warning").innerText = "Please Select a Rover";
+		return isValid = false;
+	} else {
+		document.getElementById("rover-warning").innerText = "";
+	}
+
+	if (user_camera == "") {
+		document.getElementById("camera-warning").innerText = "Please Select a Camera";
+		return isValid = false;
+	} else {
+		document.getElementById("camera-warning").innerText = "";
+	}
+
+	if (user_sol == "") {
+		document.getElementById("sol-warning").innerText = "Please Enter a Number";
+		return isValid = false;
+	} else {
+		document.getElementById("sol-warning").innerText = "";
+	}
+
+	if (user_rover !== "" && user_camera !== "" && user_sol !== "") {
+		document.getElementById("rover-warning").innerText = "";
+		document.getElementById("camera-warning").innerText = "";
+		document.getElementById("sol-warning").innerText = "";
+		return isValid = true;
+	}
+}
+
+function getUserChoice() {
+	console.log(user_rover, user_camera, user_sol);
+
+	 // Validation - User Selection and Input 
+  validateChoices();
+
+  if (isValid == true) {
+		fetch("https://api.nasa.gov/mars-photos/api/v1/rovers/" + user_rover + "/photos?sol=" + user_sol + "&camera=" + user_camera + "&api_key=b3nTdX2bbNt2aCfKTy3y4elLcQxT5wPIfEMSrJ6T")
+		//DEMO_KEY
+
+		.then(response_obj => {
+				if (response_obj.status === 200) {
+					return response_obj.json();
+					console.log(response_obj);
+				} else {
+					var error = new Error(response_obj.statusText || response_obj.status);
+					error.response_obj = response_obj;
+					throw error;
+				}
+		})
+		.then(obj => {
+			// check object returned
+			console.log(obj);
+			// TODO: DO something with object
+		})
+	}
 }
 
