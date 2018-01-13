@@ -52,6 +52,8 @@ main {
   padding: 4px;
   border: #CCB7B1 solid 1px;
   border-radius: 5px;
+  text-shadow: none;
+  margin-left: 10px;
 
 }
 

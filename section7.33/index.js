@@ -104,7 +104,23 @@ function getUserChoice() {
 			// check object returned
 			console.log(obj);
 			// TODO: DO something with object
+			image_source = obj.photos[0].img_src;
+			displayPic(image_source);
 		})
 	}
+}
+
+var image_source;
+var display_image;
+
+function displayPic(source) {
+	display_image = document.createElement("img");
+	display_image.setAttribute("src", source);
+	display_image.setAttribute("id", "f-icon");
+	display_image.setAttribute("width", "15%");
+	display_image.setAttribute("height", "15%");
+	display_image.setAttribute("alt", "Mars Photo");
+	display_image.setAttribute("hspace", "1%");
+	document.getElementById("results").appendChild(display_image);
 }
 
