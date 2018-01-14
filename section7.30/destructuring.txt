@@ -1,0 +1,140 @@
+DESTRUCTURING
+
+	An expression that allows us to pull data from objects or arrays into their own variable.
+
+	Allows us to extract properties from objects or items from arrays multiple at a time
+
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+
+EXAMPLE:
+
+		let person = {
+			first: 'Lucy',
+			last: 'Modesto',
+			city: 'Chicago',
+			employer: 'CTA'
+		};
+
+Access values in the 'person' object:
+
+		let first = person.first
+		first // 'Lucy'
+
+		let last = person.last
+		last // 'Modesto'
+
+		let city = person.city
+		city // 'Chicago'
+
+		let employer = person.employer
+		employer // 'CTA'
+
+This is repetitive if you want to access multiple values, especially of larger objects
+
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+
+Through DESTRUCTURING, we can access all of the values in the object in one line.
+
+EXAMPLE:
+
+		let person = {
+			first: 'Lucy',
+			last: 'Modesto',
+			city: 'Chicago',
+			employer: 'CTA'
+		};
+
+		let { first, last, city, employer } = person
+
+Access values: 
+
+		first // 'Lucy'
+		last // 'Modesto'
+		city // 'Chicago'
+		employer // 'CTA'
+
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+
+You can have default values when DESTRUCTURING
+
+When consuming 'person' objects and you want them to always have a 'friend' property but them may not always have them when they are passed in.
+
+		let person = {
+			first: 'Lucy',
+			last: 'Modesto',
+			city: 'Chicago',
+			employer: 'CTA'
+		};
+
+We can add a default value for 'friend' property and guarantee that our 'person' will always have a 'friend'
+
+		let { first, last, city, employer, friend='Jack Black' } = person
+
+		first // 'Lucy'
+		friend // 'Jack Black'
+
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+
+Through DESTRUCTURING, we can change variable names
+
+EXAMPLE
+
+		let person = {
+			first: 'Lucy',
+			last: 'Modesto',
+			city: 'Chicago',
+			employer: 'CTA'
+		};
+
+		let { first: firstName, last: lastName, city: theCity, employer: incomeSource } = person
+
+		firstName // 'Lucy'
+		theCity // 'Chicago'
+		incomeSource // 'CTA'
+
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+Repeated Assignments and assignments to unnamed objects
+
+EXAMPLE
+
+		var { party: k, party: j } = { party: 1 }
+
+		j // 1
+		k // 1
+
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+DESTRUCTURING works with arrays
+
+EXAMPLE
+
+		let x = [1, 2, 3]
+		let [a, b, c] = x
+		a //1
+		b // 2
+		c // 3
+
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+Swapping values with DESTRUCTURING
+	** This saves us from creating a temp variable to assigning variables to 
+
+let y = 'hello'
+let z = 'world'
+
+[y, z] = [z, y] // (2) ['world', 'hello']
+
+y // 'world'
+z // 'hello'
+
+
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+
+
+
+
+
+
