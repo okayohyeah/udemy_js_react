@@ -93,18 +93,19 @@ function getUserChoice() {
 		.then(response_obj => {
 				if (response_obj.status === 200) {
 					return response_obj.json();
-				} 
-				// else {
-				// 	var error = new Error(response_obj.statusText || response_obj.status);
-				// 	error.response_obj = response_obj;
-				// 	throw error;
-				// }
+				} else if (response_obj === 400) {
+					document.getElementById("results").innerText = "Sorry, we sent a bad request to the server. Please, try again.";
+				} else if (response_obj === 500) {
+					document.getElementById("results").innerText = "Sorry, the server is having problems and cannot complete our request. Please, try again."
+				}
 		})
 		.then(obj => {
 			// check object returned
 			console.log(obj);
-			// TODO: DO something with object
+			// Find first photo's image source from response
 			image_source = obj.photos[0].img_src;
+
+			// Create img element with image source set
 			displayPic(image_source);
 		})
 	}
