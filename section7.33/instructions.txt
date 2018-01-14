@@ -1,9 +1,6 @@
 Assignment Tasks
 
-* Pull data from the NASA Image API using AJAX
-	** Use Arrow Functions for all callbacks
-
-* Handle 200, 400, 500 response errors using Promises
+TODO:
 
 * Using destructuring to parse the JSON response
 	** Display different image search results 
@@ -16,3 +13,10 @@ Assignment Tasks
 * Use a default value for when a user doesn't input anything in the search box
 
 * Use template strings to display all the text on the page
+
+DONE:
+
+* Pull data from the NASA Image API using AJAX
+	** Use Arrow Functions for all callbacks
+
+* Handle 200, 400, 500 response errors using Promises

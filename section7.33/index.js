@@ -1,4 +1,5 @@
 var cameras_by_rovers = {
+
 	curiosity: [
 		{name: "fhaz", full_name: "Front Hazard Avoidance Camera"},
 		{name: "rhaz", full_name: "Rear Hazard Avoidance Camera"},
@@ -26,6 +27,7 @@ var cameras_by_rovers = {
 
 // Camera Select Drop Down List 
 function changeCameras(value) {
+
 	if (value.length == 0) {
 		document.getElementById("camera").innerHTML = "<option></option>";
 	} else {
@@ -80,7 +82,6 @@ function validateChoices() {
 }
 
 function getUserChoice() {
-	console.log(user_rover, user_camera, user_sol);
 
 	 // Validation - User Selection and Input 
   validateChoices();
@@ -92,18 +93,35 @@ function getUserChoice() {
 		.then(response_obj => {
 				if (response_obj.status === 200) {
 					return response_obj.json();
-					console.log(response_obj);
-				} else {
-					var error = new Error(response_obj.statusText || response_obj.status);
-					error.response_obj = response_obj;
-					throw error;
+				} else if (response_obj === 400) {
+					document.getElementById("results").innerText = "Sorry, we sent a bad request to the server. Please, try again.";
+				} else if (response_obj === 500) {
+					document.getElementById("results").innerText = "Sorry, the server is having problems and cannot complete our request. Please, try again."
 				}
 		})
 		.then(obj => {
 			// check object returned
 			console.log(obj);
-			// TODO: DO something with object
+			// Find first photo's image source from response
+			image_source = obj.photos[0].img_src;
+
+			// Create img element with image source set
+			displayPic(image_source);
 		})
 	}
+}
+
+var image_source;
+var display_image;
+
+function displayPic(source) {
+	display_image = document.createElement("img");
+	display_image.setAttribute("src", source);
+	display_image.setAttribute("id", "f-icon");
+	display_image.setAttribute("width", "15%");
+	display_image.setAttribute("height", "15%");
+	display_image.setAttribute("alt", "Mars Photo");
+	display_image.setAttribute("hspace", "1%");
+	document.getElementById("results").appendChild(display_image);
 }
 
