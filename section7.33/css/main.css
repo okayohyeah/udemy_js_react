@@ -70,6 +70,15 @@ main {
   width: 15%;
 }
 
+#message {
+  text-align: center;
+  color: #FF6933;
+  font-size:1.5em;
+}
+.mars-pics {
+  border-radius: 4px;
+}
+
 .text-about {
   padding-top: 50px;
   padding-left: 10%;

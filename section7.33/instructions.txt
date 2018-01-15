@@ -20,3 +20,7 @@ DONE:
 	** Use Arrow Functions for all callbacks
 
 * Handle 200, 400, 500 response errors using Promises
+
+RESOURCES:
+https://api.nasa.gov/api.html#Images
+https://developer.mozilla.org/en-US/docs/Web/API/Window/localStorage

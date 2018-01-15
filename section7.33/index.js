@@ -81,6 +81,11 @@ function validateChoices() {
 	}
 }
 
+var image_source;
+var display_image;
+var img_key;
+var i = 0;
+
 function getUserChoice() {
 
 	 // Validation - User Selection and Input 
@@ -94,34 +99,83 @@ function getUserChoice() {
 				if (response_obj.status === 200) {
 					return response_obj.json();
 				} else if (response_obj === 400) {
-					document.getElementById("results").innerText = "Sorry, we sent a bad request to the server. Please, try again.";
+					document.getElementById("message").innerText = "Sorry, we sent a bad request to the server. Please, try again.";
 				} else if (response_obj === 500) {
-					document.getElementById("results").innerText = "Sorry, the server is having problems and cannot complete our request. Please, try again."
+					document.getElementById("message").innerText = "Sorry, the server is having problems and cannot complete our request. Please, try again."
 				}
 		})
 		.then(obj => {
 			// check object returned
 			console.log(obj);
-			// Find first photo's image source from response
-			image_source = obj.photos[0].img_src;
 
-			// Create img element with image source set
-			displayPic(image_source);
+			// switch camera value to the camera's full name
+			var camera_full_name;
+
+			switch (user_camera) {
+				case "fhaz":
+					camera_full_name = "Front Hazard Avoidance Camera";
+					break;
+				case "rhaz":
+					camera_full_name = "Rear Hazard Avoidance Camera";
+					break;
+				case "mast":
+					camera_full_name = "Mast Camera";
+					break;
+				case "chemcam":
+					camera_full_name = "Chemistry and Camera Complex";
+					break;
+				case "mahli":
+					camera_full_name = "Mars Hand Lens Imager";
+					break;
+				case "mardi":
+					camera_full_name = "Mars Descent Imager";
+					break;
+				case "navcam":
+					camera_full_name = "Navigation Camera";
+					break;
+				case "pancam":
+					camera_full_name = "Panoramic Camera";
+					break;
+				case "minites":
+					camera_full_name = "Miniature Thermal Emission Sepectrometer"
+					break;
+			}
+
+			// check for any photos are returned
+			if (obj.photos.length === 0) {
+				document.getElementById("message").innerText = "Sorry, the " + user_rover.toUpperCase() + " did not take any pictures with the " + camera_full_name.toUpperCase() + " on Martian sol day " + user_sol +".";
+			} else {
+
+				// Find first photo's image source from response
+				image_source = obj.photos[0].img_src;
+
+				i++;
+				img_key = "image" + i;
+
+				localStorage.setItem(img_key, image_source);
+
+				// Retrieve image source from local storage
+				var display_src = localStorage.getItem(img_key);
+
+				// Create img element with image source set
+				displayImg(display_src);
+			}
+
 		})
 	}
 }
 
-var image_source;
-var display_image;
 
-function displayPic(source) {
+
+function displayImg(source) {
 	display_image = document.createElement("img");
 	display_image.setAttribute("src", source);
-	display_image.setAttribute("id", "f-icon");
+	display_image.setAttribute("class", "mars-pics");
 	display_image.setAttribute("width", "15%");
 	display_image.setAttribute("height", "15%");
 	display_image.setAttribute("alt", "Mars Photo");
 	display_image.setAttribute("hspace", "1%");
 	document.getElementById("results").appendChild(display_image);
+
 }
 
