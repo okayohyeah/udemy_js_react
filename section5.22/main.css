@@ -1,75 +1,114 @@
+* {
+	/* defines width and height of an element : include padding + border + content in element's total width and heigth*/
+	box-sizing: border-box;
+}
+
 body {
 	margin: 0;
+	background-color: white;
+	font-family: 'Muli', 'Open Sans', Arial, sans-serif;
+	min-width: 1020px;
+	word-wrap: break-word;
+	line-height: 1.5;
+	font-size: 14px;
 }
 
-header {
-	padding: 1em;
-	color: white;
-	background-color: black;
-	text-align: left;
+nav {
 	margin: 0;
+	background-color: #24292e;	
+	z-index: 1;
+	padding-top: 12px;
+	padding-bottom: 12px;
+	font-size: 14px;
 }
 
-header ul {
+nav ul {
+	display: flex;
+	padding-right: 60px;
+	padding-left: 60px;
 	list-style: none;
-	padding-bottom: 2.5em;
+	margin-top: 0;
+	margin-bottom: 0;
+	/* aligns everything in center on vertical axis*/
+	align-items: center;
+	color: white;
 }
 
-header ul li {
-	display: inline;
-	float: left;
-	padding-right: 50px;
+nav ul li {
+	font-size: 14px;
+	font-weight: 600;
+	margin-right: auto;
+	margin-left: auto;
 }
 
+nav a:link, nav a:hover, nav a:visited, nav a:active {
+	text-decoration: none;
+	color: white;
+}
+
+/* Loader Gif */
+#loader {
+  display: none;
+}
 
 #logo {
 	fill: currentColor;
 	color: #fff;
-	display: inline;
-
+	margin-bottom: -3px;
 }
 
-h1 {
-	display: inline;
+#text {
+	/* both margin autos center text in the middle of nav bar */
+	margin-left: auto;
+	margin-right: auto;
+	letter-spacing: .2em;
+  word-spacing: .2em
 }
 
-#input_and_button {
-	float: right;
-	margin-top: 4px;
-	display: inline;
-}
-
-/* search box */
-#input_username {
-	border-radius: 3px;
-  outline: none;
-
-  background-color: gray;
-
-  /* text color typed input */
-  color: white;
-  font-size: 14px;
-
-	padding-top: 3px;
+#search_box{
+	padding-left: 8px;
 	padding-right: 8px;
-  padding-bottom: 3px;
-  padding-left: 8px;
+	line-height: 20px;
+	vertical-align: middle;
+	width: 300px;
+	font-size: 13px;
+	min-height: 30px;
+	font-weight: normal;
+	border: none;
+	box-shadow: none;
+	border-radius: 3px;
+	outline: none;
+	/* create space between box and button */
+	margin-right: .25em;
+	background-color: #313438;
 
+	/* text inputed by user is white */
+	color: white;
 
-  height: 25px;
-    
-  border: 0;
-  margin-right: 5px;
+	/*0 T & B - 1em R & L */
+/*	padding: 0 .25em;*/
 }
 
 input::placeholder {
-  color: #D3D3D3;
-  font-style: italic;
+  color: #707275;
+}
+
+#button_id {
+	background-color: white;
+	border: none;
+	color: black;
+	border-radius: .4em;
 }
 
 main {
-	margin-top: 40px;
 	text-align: center;
+	margin-top: 25px;
+}
+
+#intro {
+	margin-right: 2em;
+	margin-left: 2em;
+	font-size: 20px;
 }
 
 #pic {
@@ -79,11 +118,11 @@ main {
 }
 
 #name {
-	font-weight: 600;
+	margin-bottom: 10px;
+	letter-spacing: 4px;
 }
 
 #username {
-	font-weight: 300;
 	font-style: normal;
 }
 
@@ -101,37 +140,65 @@ main {
 
 #f-icon {
 	border-radius: 5px;
+	margin-bottom: 20px;
+}
+
+#warning {
+	color: red;
+	font-size:1.5em;
 }
 
 footer {
-	margin-top: 20px;
-	padding: 0.1em 1em 2.2em 1em;
-	color: white;
-	background-color: black;
-	text-align: left;
-	left: 0;
-  bottom: 0;
-  width: 100%;
+	padding-right: 16px;
+	padding-left: 16px;
+	padding-top: 40px;
+	padding-bottom: 40px;
+	max-width: 1012px;
+	margin-top: 40px;
+	margin-right: auto;
+	margin-left: auto;
+	border-color: #eaecef;
+	border-top: 1px #e1e4e8 solid;
 }
 
 footer ul {
+	display: flex;
 	list-style: none;
+	margin-top: 0;
+	margin-bottom: 0;
+	font-size: 12px;
+	color: #586069;
 }
 
-footer ul li a {
-	display: inline;
-	float: left;
-	padding-right: 50px;
+footer ul li {
+	margin-right: auto;
+	margin-left: auto;
 }
 
-footer a:link {
+footer a:link, footer a:hover, footer a:visited, footer a:active {
 	text-decoration: none;
-	color: white;
+	color: #586069;
 }
 
-footer a:visited {
-	text-decoration: none;
-	color: white;
+@media screen and (max-width: 1005px) {
+
+	nav ul {				
+		display: block;		
+		text-align: center;		
+		width: 100%;	
+		height: 100%	
+	}		
+
+	nav li {
+		padding: 3px 0 3px 0;
+	}
+
+	footer ul {				
+		display: block;		
+		text-align: center;		
+		width: 100%;	
+		height: 100%	
+	}		
 }
 
 

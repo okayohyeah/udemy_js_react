@@ -2,17 +2,6 @@ Assignment Tasks
 
 TODO:
 
-* Using destructuring to parse the JSON response
-	** Display different image search results 
-
-* Save previous searches using the DOM localStorage API
-
-* Use a mouseover event to make captions appear
-	** For each image search result
-
-* Use a default value for when a user doesn't input anything in the search box
-
-* Use template strings to display all the text on the page
 
 DONE:
 
@@ -20,6 +9,18 @@ DONE:
 	** Use Arrow Functions for all callbacks
 
 * Handle 200, 400, 500 response errors using Promises
+
+* Save previous searches using the DOM localStorage API
+
+* Using destructuring to parse the JSON response
+  ** Display different image search results 
+
+* Use a mouseover event to make captions appear
+  ** For each image search result
+
+* Use a default value for when a user doesn't input anything in the search box
+
+* Use template strings to display all the text on the page
 
 RESOURCES:
 https://api.nasa.gov/api.html#Images
