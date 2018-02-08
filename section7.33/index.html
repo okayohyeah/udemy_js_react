@@ -16,7 +16,7 @@
   <div class="container-fluid">
     <div class="navbar-header ">
       <a class="navbar-brand" href="#">
-      	RoverPixFlix
+      	RoverPix
       </a>
     </div>
   </div>
@@ -26,52 +26,88 @@
 	<div class="container-fluid">
 
 		<div class="row text-center">
-			<p class="lead">View Images of Mars taken by NASA's rovers</p>
+			<p class="lead">View images of Mars taken by NASA's rovers</p>
+		</div>
+  
+    <div class="row">
+      <div class="col-md-4">
+    		<form onkeypress="return event.keyCode != 13">
+          <!-- ROVER -->
+          <div class="form-group">
+              1. Select a Martian Rover
+              <p class="warning" id="rover-warning"></p>
+          </div>      
+          <div class="form-group">
+            <select class="form-control rover-camera" id="rover" onChange="changeCameras(this.value);" required="">
+              <option value="" disabled selected>Select Rover</option>
+              <option value="curiosity">Curiosity</option>
+              <option value="opportunity">Opportunity</option>
+              <option value="spirit">Spirit</option>
+            </select>
+          </div> 		  
+          <!-- CAMERA -->
+          <div class="form-group">
+            2. Select a Camera
+            <p class="warning" id="camera-warning"></p>
+          </div>
+    		  <div class="form-group">
+    	    	<select class="form-control rover-camera" id="camera">
+    		    	<option value="" disabled selected required>Select Camera</option>
+    	      </select>
+    		  </div>
+          <!-- SOL -->
+    		  <div class="sol-label form-group">
+    		  	3. Enter Martian sol day
+            <p class="warning" id="sol-warning"></p>
+    		  </div>
+    		  <div class="form-group">
+    		    <input class="input-sol form-control" id="sol" placeholder="Enter a number" type="number" min="0">
+    		  </div>
+          <!-- BUTTON -->
+    		  <div class="form-group text-center">
+    		  	<button class="btn btn-warning btn-large" id="submit" type="button" onClick="getUserChoice()">Get Images</button>
+    			</div>
+    		</form>
+
+        <!-- Loading Gif -->
+        <div class="text-center">
+          <img id="loader" src="images/loading.gif">
+        </div>
+        <!-- Message for no images returned -->
+        <div>
+          <div id="message"></div>
+        </div>
+      </div>
+      <!-- Results -->
+      <div class="col-md-8">
+        <div>
+          <div id="results"></div>
+        </div>
+      </div>
 		</div>
 
-		<form>
-			<div class="form-group">
-				<span class="warning" id="rover-warning"></span>
-			</div>
-		  <div class="form-group">
-	      <select class="form-control rover-camera" id="rover" onChange="changeCameras(this.value);" required="">
-					<option value="" disabled selected>Select Rover</option>
-					<option value="curiosity">Curiosity</option>
-					<option value="opportunity">Opportunity</option>
-					<option value="spirit">Spirit</option>
-				</select>
-		  </div>
-		  <div class="form-group">
-	      <span class="warning" id="camera-warning"></span>
-			</div>
-		  <div class="form-group">
-	    	<select class="form-control rover-camera" id="camera">
-		    	<option value="" disabled selected required>Select Camera</option>
-	      </select>
-		  </div>
-		  <div class="sol-label form-group">
-		  	Select Martian sol day
-		  </div>
-		  <div class="form-group">
-		    <span class="warning" id="sol-warning"></span>
-			</div>
-		  <div class="form-group">
-		    <input class="input-sol form-control" id="sol" placeholder="Enter number" type="number" min="0">
-		  </div>
-		  <div class="form-group">
-		  	<button class="btn btn-warning btn-large" id="submit" type="button" onClick="getUserChoice()">Get Images</button>
-			</div>
-		</form>
-		
-		<div class="row col-xs-12 text-center text-about">
-			<p>NASA has images Mars from three of their rovers:</br>
-			 <span class="font-effect-fire">Opportunity</span>, <span class="font-effect-fire">Spirit</span> and <span class="font-effect-fire">Curiosity</span>.</p>
+		<div class="row col-md-12 text-about">
+			<p>NASA has images Mars from three of their rovers:
+			 the <span class="font-effect-fire">Opportunity</span>, <span class="font-effect-fire">Spirit</span> and <span class="font-effect-fire">Curiosity</span>.</p>
 
-			<p><span class="font-effect-fire">Spirit</span> is inactive, but its images endure, and <span class="font-effect-fire">Opportunity</span> and <span class="font-effect-fire">Curiosity</span> are still actively collecting data and evidence for current NASA studies.</p>
+			<p>The <span class="font-effect-fire">Spirit</span> is inactive, but its images endure, and the <span class="font-effect-fire">Opportunity</span> and <span class="font-effect-fire">Curiosity</span> are still actively collecting data and evidence for current NASA studies.</p>
 		</div>
-
 	</div>
 </main>
+
+<footer class="footer">
+  <ul>
+    <li>
+      &copy; 2018 Katherine Oh
+    </li>
+    <li>
+      <a href="http://www.github.com/okayohyeah" target="_blank">Created by: @okayohyeah</a>
+    </li>
+    <li>
+      <a href="http://mars.nasa.gov/mer/gallery/images.html" target="_blank">Learn About NASA</a>
+    </li>
+  </ul>
+  </footer>
 
 </body>
 

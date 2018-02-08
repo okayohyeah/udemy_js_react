@@ -1,24 +1,35 @@
 Assignment Tasks
 
+TODO:
+
+
+DONE:
+
 * Pull data from the NASA Image API using AJAX
 	** Use Arrow Functions for all callbacks
 
 * Handle 200, 400, 500 response errors using Promises
 
-* Using destructuring to parse the JSON response
-	** Display different image search results 
-
 * Save previous searches using the DOM localStorage API
 
+* Using destructuring to parse the JSON response
+  ** Display different image search results 
+
 * Use a mouseover event to make captions appear
-	** For each image search result
+  ** For each image search result
 
 * Use a default value for when a user doesn't input anything in the search box
 
 * Use template strings to display all the text on the page
 
+<<<<<<< HEAD
 BOOTSTRAP DOCUMENTATION:
 https://getbootstrap.com/docs/3.3/css/
 
 BOOTSTRAP CSS: 
 https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.css
+=======
+RESOURCES:
+https://api.nasa.gov/api.html#Images
+https://developer.mozilla.org/en-US/docs/Web/API/Window/localStorage
+>>>>>>> 3b9f8654f9a5cfb00b0cc442913864c996544d6d
