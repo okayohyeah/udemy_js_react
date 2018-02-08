@@ -16,3 +16,9 @@ Assignment Tasks
 * Use a default value for when a user doesn't input anything in the search box
 
 * Use template strings to display all the text on the page
+
+BOOTSTRAP DOCUMENTATION:
+https://getbootstrap.com/docs/3.3/css/
+
+BOOTSTRAP CSS: 
+https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.css
