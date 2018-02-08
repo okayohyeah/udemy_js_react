@@ -1,0 +1,78 @@
+NPM and Yarn: 
+  -package management tools
+    -allows you to pull in public code into your projects
+
+Package:
+  -A directory of files that includes package.json
+  -small and modular
+
+NPM: 
+  -allows developers to easily share packages so other developers can reuse that code in their projects
+  -largest ecosytem of open source libraries
+
+package.json:
+  -defines our project
+
+Creating basic NPM project that runs on NPM packages:
+  1. in terminal:
+    $ mkdir name-project
+    $ cd name-project
+    $ npm init  
+      -prompts you to fill out fields.
+      -entry point is main file in the project (ie. index.js)
+
+  2. after finished, creates package.json
+
+  3. add packages into dependencies directory
+    a. in terminal:
+      $ npm install name-of-package (ie. vaca)
+
+    b. look at package.json:
+        "dependencies": {
+          "name-of-package": "verion-number"
+        }
+
+  4. create index.js
+    - use package installed by requiring it.
+    ie. in index.js - at top of file:
+      const vaca = require('vaca'); 
+          // this pulls in the vaca pacakge. you can use the functions, etc. in the package
+
+  5. run the project based in NPM packages in NPM:
+    -in terminal:
+      $ node index.js
+
+Node: 
+  -for running projects in Node is similar to running them in the browser except it is in JavaScript only instead of HTML
+  -used for back-end oriented projects
+
+Yarn:
+  -like NPM but created because of security and inconsistency concerns in NPM, which are rare.
+
+Creating basic Yarn project that runs on Yarn packages:
+  1. in terminal:
+    $ mkdir name-project
+    $ cd name-project
+    $ yarn init  
+      -prompts you to fill out fields.
+      -entry point is main file in the project (ie. index.js)
+  2. after finished, creates package.json
+
+  3. add packages into dependencies directory
+    a. in terminal:
+      $ yarn add name-of-package (ie. vaca)
+    
+    b. look at package.json:
+        "dependencies": {
+          "name-of-package": "verion-number"
+        }
+
+  4. create index.js
+    - use package installed by requiring it.
+    ie. in index.js - at top of file:
+      const dogefy = require('dogefy'); 
+          // this pulls in the dogefy pacakge. you can use the functions, etc. in the package
+
+  5. run the project based in Yarn packages in Yarn:
+    -in terminal:
+      $ node index.js
