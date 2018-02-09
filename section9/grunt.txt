@@ -1,0 +1,153 @@
+Grunt: 
+  -JavaScript task runner. 
+  -Removes repetitive tasks in projects.
+  -has lots of plugins
+
+Gruntfile.js
+  -lists tasks
+    -ie. "watch" task
+  -in terminal:
+    $ grunt
+      -ie. Running "watch" task
+
+
+Grunt Activity:
+  1. download files (renamed: grunt_activity)
+  2. $ cd grunt_activity
+  3. $ npm init
+      - name: grunt_activity: tomato-tapper
+      - package.json created
+  4. Create "default" task
+      - $ touch Gruntfile.js
+
+          grunt.registerTask('default', () => {
+            grunt.log.writeln(`Hello, world!`);
+  });
+
+  5. Run grunt
+      - $ grunt
+
+            Running "default" task
+            Hello, world!
+            Done
+
+  6. Modify "default" task 
+      - pass in paramater "name":
+
+          grunt.registerTask('default', (name) => {
+            grunt.log.writeln(`Hello, ${name}`);
+          });
+  7. Run grunt
+      - $ grunt default:Kathy
+
+          Running "default:Kathy" (default) task
+          Hello, Kathy
+          Done
+
+  8. Add initial configuration to Gruntfile.js
+      - pass in "name" paramater within file rather than command line
+      - add: 
+
+          grunt.initConfig({
+            name: 'class'
+          });
+
+      - change:
+
+          grunt.registerTask('default', () => {
+            grunt.log.writeln(`Hello, ${grunt.config.get('name')}`);
+          });
+  9. Run grunt
+      - $ grunt
+
+          Running "default" task
+          Hello, class
+          Done
+
+  10. add packages:  // check package.json and see them added to "dependencies"
+      - $ npm install grunt-contrib-watch grunt-contrib-uglify
+      
+  11. "watch" package
+      - watch: watches for files to be updated and tasks to be performed
+      - in initial configuration add:
+
+          watch: {
+            files: [.*js, .*css],   // types of files to be watched * = all of 
+            task: ['updated']     // tasks to be performed
+          } 
+      - load "watching" into grunt
+
+          grunt.loadNpmTasks('grunt-contrib-watch');
+
+      - create "updated" task
+
+          grunt.registerTask('updated', () => {
+            grunt.log.writeln(`It updated again!`);
+          });
+
+  12. Run grunt:
+      - $ grunt watch
+
+        Running "watch" task
+        Waiting...
+
+      - add comment in Gruntfile.js and save
+
+        Reloading watch config
+        Running "watch" task
+        Waiting...
+        >> File "Gruntfile.js" changed.
+
+  13. "uglify" package
+      - uglify: creates minified ("uglified") files 
+      - in initial configuration add:
+
+          uglify: {                   // add 'uglify'
+            build: {                  // in 'build' parameter
+              src: ['index.js', 'logger.js'], // add 'src' files
+              destination: 'dist/bundle.js'   // add 'destination' file into new folder
+            }
+      - load "uglifying" into grunt
+
+          grunt.loadNpmTasks('grunt-contrib-uglify');
+
+  14. Run grunt:
+      - $ grunt uglify
+
+        Running "uglify:build" (uglify) task
+        >> 1 file created 486 B → 393 B
+        Done.
+
+      - check that "dist" folder was created with "bundle.js" file
+
+  15. TODO's Challenge:
+      a. Convert all functions into arrow functions
+          x: index.js and logger.js
+      b. Add babel package
+          x: $ npm install grunt-babel babel-core babel-preset-env
+          x: $ npm install babel-presnt-env
+      c. add in initial configuration
+          x:  babel: {                    // add 'babel'
+                options: {
+                  sourceMap: true,
+                  presets: ['env']
+                },
+                dist: {
+                  files: [
+                    {
+                      expand: true,
+                      src: ['index.js', 'logger.js'],
+                      dest: 'dist/',  // if you want the modified files to go into another dir
+                      ext: '-modified.js' 
+                    }
+                  ]
+                }
+              }
+      d. load "babeling" into grunt
+          x: grunt.loadNpmTasks('grunt-babel');
+      e. run grunt
+          x: $ grunt babel
+
+              Running "babel:dist" (babel) task
+              Done.
+              // creates modified.js files in dist dir.
