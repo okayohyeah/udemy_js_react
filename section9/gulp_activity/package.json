@@ -1,0 +1,21 @@
+{
+  "name": "my_portfolio",
+  "version": "1.0.0",
+  "description": "My Portfolio: Section 9 - Gulp activity",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Katherine Oh",
+  "license": "ISC",
+  "dependencies": {
+    "graceful-fs": "^4.1.11",
+    "gulp": "^3.9.1",
+    "gulp-compile-handlebars": "^0.6.1",
+    "gulp-rename": "^1.2.2",
+    "gulp-uglify": "^3.0.0",
+    "handlebars": "^4.0.11",
+    "minimatch": "^3.0.2",
+    "pump": "^3.0.0"
+  }
+}

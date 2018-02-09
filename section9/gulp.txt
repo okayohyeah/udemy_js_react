@@ -1,0 +1,57 @@
+My Portfolio: Gulp Activity
+
+1. $ cd gulp_activity
+2. $ npm init
+3. $ npm install gulp 
+4. $ touch gulpfile.js
+  a. require gulp
+  b. create 'default' task
+
+5. $ gulp
+    [17:36:56] Using gulpfile ~/Desktop/udemy_js_react/section9/gulp_activity/gulpfile.js
+    [17:36:56] Starting 'default'...
+    hello world
+    [17:36:56] Finished 'default' after 264 μs
+
+6. $ npm install handlebars gulp-compile-handlebars gulp-rename
+  - handlebars.js: templating language
+  - gulp-compile-handlebars: gulp plugin that compiles handlebars templates
+  - gulp-rename: renames files
+
+7. directory "partials" have all of our handlebars files (.hbs) that are all part of the index.hbs file
+  - ie. {{> head}} is the head.hbs partial templates in the index.hbs
+
+8. create 'html' task in gulpfile.js
+  - require handlebars and rename
+
+9. $ gulp html
+  - run 'html' task
+
+    [19:37:26] Using gulpfile ~/Desktop/udemy_js_react/section9/gulp_activity/gulpfile.js
+    [19:37:26] Starting 'html'...
+    [19:37:26] Finished 'html' after 110 ms
+
+10. check into root file for index.html
+
+11. $ open index.html
+  - look at index.html in browser
+
+12. $ touch index.js
+  - create index.js
+
+13. TODO: 
+  - create event listeners in index.js
+  x add gulp task to uglify the js
+      x $ npm install gulp-uglify
+      x require uglify
+      x create 'compress' task
+        source: 
+          https://www.npmjs.com/package/gulp-uglify
+      x $ npm install pump
+        x require pump in gulp.js
+        - it handles success and failures of tasks easily (shorthand)
+        source: 
+          https://github.com/terinjokes/gulp-uglify/blob/master/docs/why-use-pump/README.md#why-use-pump
+  - run compress task
+        $ gulp compress
+  
