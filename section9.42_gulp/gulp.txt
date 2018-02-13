@@ -1,3 +1,28 @@
+Gulp:
+  - similar to Grunt
+  - Streaming build system
+  - lots of plugins and automates tasks
+
+gulpfile.js
+  - list of tasks 
+      - are JavaScript but do specific things based on what is imported
+      - pipes in directories/files and runs a job on them
+        -syntax like Promises instead of .then uses .pipe
+          
+          gulp.task('sass', function() {
+            return gulp.src('app/scss/**/*scss')
+              .pipe(sass().on('error', sass.logError))
+              .pipe(gulp.dest('app/css'))
+              .pipe(browerSync.reload({
+                stream: true
+              }));
+          })    
+
+Sources: 
+  https://gulpjs.com
+  https://github.com/zellwk/gulp-starter-csstricks  
+
+
 My Portfolio: Gulp Activity
 
 1. $ cd gulp_activity
@@ -37,10 +62,12 @@ My Portfolio: Gulp Activity
   - look at index.html in browser
 
 12. $ touch index.js
-  - create index.js
+  x create index.js
 
 13. TODO: 
-  - create event listeners in index.js
+  x create event listeners in index.js
+      x mouseover & mouseoff - buttons
+
   x add gulp task to uglify the js
       x $ npm install gulp-uglify
       x require uglify
@@ -49,9 +76,19 @@ My Portfolio: Gulp Activity
           https://www.npmjs.com/package/gulp-uglify
       x $ npm install pump
         x require pump in gulp.js
-        - it handles success and failures of tasks easily (shorthand)
-        source: 
-          https://github.com/terinjokes/gulp-uglify/blob/master/docs/why-use-pump/README.md#why-use-pump
-  - run compress task
-        $ gulp compress
+          * it handles success and failures of tasks easily (shorthand)
+          source: 
+            https://github.com/terinjokes/gulp-uglify/blob/master/docs/why-use-pump/README.md#why-use-pump
+
+  x add compress task
+      x $ npm install gulp-compress
+      x  $ gulp compress
+  
+  x update partials or add own with work made 
+  in this class
+  
+  x add clean-css package
+      x $ npm install gulp-clean-css
+      x add minify-css task
+      x $ gulp minify-css
   

@@ -1,0 +1,23 @@
+body {
+  color: #19332a;
+}
+
+.jumbotron {
+  background: #b0e0e6;
+  color: #19332a;
+}
+
+.intro_projects_contacts {
+  padding-left: 100px;
+  padding-right: 100px;
+}
+
+.portfolio_pics {
+  width: 100%;
+}
+
+.btn {
+  background: #19332a;
+  color: #b0e0e6;
+  outline: none;
+}
