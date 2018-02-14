@@ -1,0 +1,89 @@
+Section 10.47
+React:
+	- A JavaScript library for building user interfaces
+	- 3 reasons to use React
+		1. Reusable and stateful components
+			- Components are like functions
+			- Give them some input and they give us output 
+			- Re-use functions as needed and compose bigger functions from smaller ones
+			- React components have an input properties and state
+			- React components have an output which is the user interface
+		2. Reactive updates
+			- When one of the inputs change in a component, the interface changes to reflect that
+			- React handles updating the DOM for us as developers, so we don’t have to.
+		3. The Virtual DOM
+			- Acts like an agent between the developer and the real DOM
+			- React only renders what is changed on the page so it’s less work for the real DOM
+			- Using the virtual DOM in large applications will almost always be faster than using the real DOM because it doesn’t require the browser to make a ton of changes.
+
+Section 10.48
+React lives in a single <div> within your SAP <body>
+  - in index.html: 
+      <div id="root"></div>
+
+Section 10.49
+JSX:
+  - strictly typed Object Oriented Programming Language that compiles to JavaScript
+  - runs in modern web browsers
+  - faster, safer and easier than regular JS
+  - add in templating in components in React 
+
+Section 10.50
+Component Lifecycle Methods:
+- each component has a lifecycle method/set of lifecycle methods:
+  - how it is initialized
+  - how it lives in the web application
+  - how it's removed
+
+Section 11.51
+Lifcycle of React Component
+4 Phases - Initialization, Mounting, Updating, and Unmounting:
+
+1. Initialization: 
+  - only one method: 
+    - constructor()
+      - it constructs the component with the initial state of the component
+      - add this to component when they are a child component
+
+2. Mounting: 
+  - 3 methods:
+    - componentWillMount()
+      - executes right before the component renders on the page
+      - most commonly used to configure your component
+    - render()
+      - sticks the component into the user interface in your application
+    - componentDidMount()
+      - happens right after the component is rendered
+      - usually where you would call an AJAX request to load data into component 
+      - or add event listeners
+
+3. Updating: 
+  - methods:
+    - componentWillReceiveProps()
+      - properties from a parent component will change the current component's state
+    - componentShouldUpdate()
+      - it controls exactly when our component will re-render
+      - similar to componentWillReceiveProps() but it returns a boolean saying whether or not a component will update
+      - it says we should only update the component if the properties we care about change
+    - componentWillUpdate()
+      - is rarely used method that is used for providing app configuration if the previous 2 methods decide we should update
+    - render()
+      - if these 3 methods say its time to render, it updates the component in the user interface
+    -componentDidUpdate()
+    - this is the update version of componentDidMount() of Mounting Phase 
+    - it happens right after the updated render()
+
+4. Unmounting:
+    - when we say this component is not going to exist anymore, let's take it off the page
+    - 1 method:
+      - componentWillUnmount()
+        - the component is about to go away
+        - this is where you remove event listeners or network requests coming from said component
+
+Reading:
+- The React Life Cycle
+    https://developmentarc.gitbooks.io/react-indepth/life_cycle/introduction.html
+- How to Benchmark React Components: The Quick and Dirty Guide
+    https://engineering.musefind.com/how-to-benchmark-react-components-the-quick-and-dirty-guide-f595baf1014c
+- ReactJS Component Lifecycle
+    https://www.tutorialspoint.com/reactjs/reactjs_component_life_cycle.htm

@@ -1,0 +1,78 @@
+Build a Konami Code React App - Part 1
+
+To set up react app use:
+  1. $ npm install -g create-react-app
+      - sets up webpack and the necessary folders for you
+  
+  2. $ create-react-app konami // naming it 'konami'
+      - sets up our app for us 
+ 
+  3. $ cd konami
+  
+  4. $ yarn start
+      - starts the development server
+  
+  5. $ yarn add mousetrap 
+      - install package which detects konami code in our app
+      - detects key commands
+
+BASICS of REACT APP:
+
+Our entire React app lives this <div> in the index.html: 
+  <div id="root"></div>
+    - it gets the 'root' element from the index.js
+
+In index.js
+  - it adds our App component:
+    ReactDOM.render(<App />, document.getElementById('root'));
+
+In app.js:
+  - we see this in our browser when app is launched. 
+
+
+SETTING UP OUR APP:
+1. create folder src/components
+  - where our components will live
+
+2. create file Konami.js in src/components
+  - create Konami component
+
+3. import Konami component in App.js and add into the app.
+      import Konami from './components/Konami';
+      ...
+        </p>
+        <Konami />
+      </div>
+
+4. $ yarn start
+  - should see 'Hello this is Konami!' in our app in the browser
+
+5. add lifecycle methods to Konami component:
+  a. Initialization:
+    - add constructor()
+  b. Mounting:
+    - add componentDidMount()  - when it renders
+  c. Unmounting:
+    - add componentWillUnmount() - when it goes away
+
+6. import Mousetrap to Konami component
+  a. add into componentDidMount() 
+    
+    {
+      Mousetrap.bind([`1 2 3 4`, `up up down down left right left right b a`])
+    }
+
+    - takes 2 commands (#s and konami code) and bounds them to this object
+
+  b. add callback function:
+    this.popUp
+
+  c. create popUp() function
+
+  d. add into componentWillUnmount()
+  
+    {
+      Mousetrap.unbind([`1 2 3 4`, `up up down down left right left right b a`])
+    }
+    - unbinds the keyboard commands
+    - when the component dies off, so will the key commands
