@@ -87,3 +87,30 @@ Reading:
     https://engineering.musefind.com/how-to-benchmark-react-components-the-quick-and-dirty-guide-f595baf1014c
 - ReactJS Component Lifecycle
     https://www.tutorialspoint.com/reactjs/reactjs_component_life_cycle.htm
+
+Section 12.54
+State:
+  - the condition of our current program
+
+React state:
+  - is data that is specific to the current component and can change as the user interacts with it.
+  - it is a plain JavaScript object that is initialized in the constructor() and can be modified throughout the components lifecycle
+  - state can be numbers, string, object, a promise, anything really
+  - whenever you set or change the state, it runs through the update functions of the lifecycle methods and re-renders based on the changes in the Virtual DOM.
+
+  Section 12.55
+  React props: 
+    - are defined by the caller of the component or parent component
+    - you can pass any type of object, primitive, or function
+    - are passed from parent to child and can work together with React state to create rich components that integrate well.
+    
+    - example: 
+      
+      <Hello target="world" />
+
+      - add props to the 'Hello' component
+      - props named "target" and equals "world"
+
+      - in the code of the 'Hello' component:
+
+        <div>Hello {this.props.target}</div>

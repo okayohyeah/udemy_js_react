@@ -1,0 +1,13 @@
+Quiz 4
+
+1. What is JSX?
+  a: A statically-typed, object-oriented programming language
+
+2. In what order is the React lifecyle?
+  a: initialization, mounting, updating, unmounting
+
+3. What is the Virtual DOM?
+  a: A copy of the browser DOM that manages UI changes without updating the entire page
+
+4. What is the purpose of componentDidMount()?
+  a: Load data, configurations, and listeners after the component has been rendered
