@@ -1,0 +1,37 @@
+Section 9: Web Application Recap
+
+Project:
+  - codebase you are working with (application, framework, plugin or library)
+
+Module:
+  - a unit of source code that provides some functionality
+    - usually just a file
+    - sometimes just a function within a file
+    - a module may depend on another module (aka dependency)
+
+Package:
+  - a collection of one or more modules that is published somewhere so others can use it 
+
+Package Manager:
+  - a tool that installs a package into your system
+    - ie. npm, Yarn
+
+Technologies:
+* npm:
+  - Node package manager
+
+* Yarn:
+  - another package manager
+  - focused on speed and security
+
+* Grunt:
+  - JavaScript task manager 
+  - manages tasks and executes them for you
+
+* Gulp:
+  - streaming build system
+  - similar to Grunt
+  - handles automation for JavaScript
+
+* webpack:
+  - module bundler for JavaScript applications

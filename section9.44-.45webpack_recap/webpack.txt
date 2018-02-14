@@ -1,0 +1,20 @@
+Webpack:
+  - Latest build tools  
+    - bundles tasks
+    - doesn't focus on automating tasks
+  - Main Webpack Concepts;
+    1. Entry
+      - first file that kicks off the app
+    2. Output
+      - tells where code should go and how to treat the bundled code
+    3. Loaders 
+      - how to process non-JavaScript modules (aka files) and include these dependencies into your bundles
+    4. Plugins
+      - can do whatever loaders cannot do
+      - perform actions and custom functionality on chunks of our bundled modules, incredibly customizable
+
+https://webpack.js.org
+
+Beginner's Guide to Webpack:
+  https://github.com/dabit3/beginning-webpack
+  https://medium.com/javascript-training/beginner-s-guide-to-webpack-b1f1a3638460
