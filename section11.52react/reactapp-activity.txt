@@ -76,3 +76,43 @@ SETTING UP OUR APP:
     }
     - unbinds the keyboard commands
     - when the component dies off, so will the key commands
+
+ADD STATE AND PROPS:
+
+1. Add constructor() to App.js
+  a. set initial state to app:
+
+    this.state = {
+      activated: false;
+    }
+
+2. Add toggleActivation() because we don't want the Konami component always rendering
+  - it sets state - toggles between states
+  - call this function with a button
+  - bind 'this' variable to the toggleActivation():
+
+    this.toggleActivation = this.toggleActivation.bind(this);
+      - when we call this.toggleActivation, it's calling toggleActivation() function and binds the variable 'this' to the function.
+
+
+3. Delete <Konami /> component and add button which calls toggleActivation() when clicked.
+  
+    <button onClick={this.toggleActivation}>Toggle Konami Code!</button>
+
+4.  Add ternary operator: 
+    - if this state (activated) is true it will render Konami component
+    - if this state is false, renders the blank component.
+    
+    {this.state.activated ? <Konami /> : <div>Konami Code: Deactivated</div>}
+
+5. Pass props into Konami component:
+  - in App.js:
+
+      <Konami name="Kathy" />
+  
+  - in Konami.js:
+
+      <div>Hello, {this.props.name}, this is Konami!</div>
+
+TODO:
+1. Make input box in App.js and pass the value of the input box to the 'name' variable
