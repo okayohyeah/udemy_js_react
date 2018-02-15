@@ -1,0 +1,13 @@
+Quiz 5
+
+1. What function can change a component's state?
+  a: setState()
+
+2. What is the difference between Presentational and Container Components?
+  a: Component lifecycles methods are rarely used in presentational components
+
+3. Why would you add something like this.toggleActivation = this.toggleActivation.bind(this); to a constructor?
+  a: A function is being called from a prop, and since the scope has changed, we need to bind the corrent "this"
+
+4. What can you pass into "props"?
+  a: all of the above - strings, variables, objects, state, functions

@@ -1,0 +1,43 @@
+Section 13.59 + 13.60
+2 TYPES OF COMPONENTS:
+  1. Presentational Components
+    a. Focused with how things look
+      - handle all of the DOM components and their styling within them
+      - they don't specify anything about data being pulled in or passed in the app
+      - can be written as stateless components
+        - can write it as functional component - shorthand
+          - has no lifecycle methods available to it
+          - ie. 
+            var Aquarium = (props) => {
+              var fish = getFish(props.species);
+              return <Tank>{fish}</Tank>;
+            }
+
+      - instead of written like this:
+        class Aquarium extends Component {
+          constructor(props) {
+            super(props);
+          }
+          ...
+          render() {
+            let fish = getFish(this.props.species);
+            return <Tank>{fish}</Tank>;
+          }
+        }
+      
+      - both can be used like:
+        <Aquarium species="pufferfish" />
+
+  2. Container Components
+    a. Focused on how things work
+    b. for providing data and behaviors to other components (both Presentational and Container) 
+    c. never written as a functional component
+    d. utilize the component's lifecycle methods to load and manipulate data, 
+    e. having these Container Components separate from the Presentation Components:
+      i. allows for a better separation of concerns as you make your apps a modular as possible
+      ii. promotes re-usability 
+
+
+Building your app:
+1. Build Presentational Components first
+2. As you start passing more and more props between components, you group them into Container Components

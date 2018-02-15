@@ -1,0 +1,88 @@
+Section 13.61
+
+Markdown Note Manager - Activity
+
+---------------------------------------------------------------
+|                        <App>                                |
+---------------------------------------------------------------
+|   <Sidebar>   |                                             |
+-----------------                                             |
+|  + new Note   |                                             |   
+-----------------                                             |
+|               |                 <Editor>                    |
+|               |                                             |
+|    List of    |                                             |
+|     notes     |                                             |
+|               |                                             |
+|               |                                             |
+---------------------------------------------------------------
+
+1 Container Component:
+  1. App
+    - where everything is contained
+
+2 main Presentational Components:
+  1. Sidebar
+    - button that says new notes
+    - list of notes
+  2. Editor 
+    - where you edit the Markdown
+
+
+SETTING UP BASIC EDITOR:
+x 1. $ create-react-app markdown-note-manager
+x 2. $ cd markdown-note-manager
+x 3. $ yarn add milligram
+  - Milligram 
+    - styling library
+    - minimalist css framework
+      - https://milligram.io
+x 4. $ yarn add react-simplemde-editor
+  - react-simplemde-editor 
+    - an open source & simple, embeddable, and beautiful JS markdown editor
+      - https://simplemde.com
+x 5. Add styles for Simple MDE Editor to index.html
+x 6. In App.js:
+  x a. import milligram - styles
+  x b. add <h1>
+  x c. add container class to <div className="App"> - because it's a container component
+  x d. add <Sidebar /> component
+  x Editor. add <Editor /> component
+  x e. wrap them both in <div className="row"> - for styling 
+  x f. import both Sidebar and Editor components 
+x 7. Create components folder: src/components
+  x a. create Sidebar.js and Editor.js components
+  x b. add class names for milligram styling 
+
+x 8. In Editor.js
+  x a. import SimpleMD editor component
+  x b. add <SimpleMDE /> component between <div>
+  x c. within the <SimpleMDE /> component add:
+    x i. onChange={this.props.change}
+      - as the editor changes we want something to happen
+      - use "props" and pass in a function from App.js that will change
+        - since Editor.js is a Presentational Component
+    x ii. value="hello"
+         options={{
+          autofocus: true    
+         }}
+      - Look at SimpleMDE Docs for more 'options'
+
+x 9. In Sidebar.js
+  x a. add button
+
+x 10. In App.js
+  x a. add change() function 
+      i. add constructor() and bind this.change
+      ii. add change()
+      iii. add in <Editor change={this.change} />
+
+TODO:
+1. Create functions for adding a new notes to the sidebar as a list of notes
+2. Save note list using the DOM localStorage API
+3. List each note in the sidebar
+4. Create functions for updating existing notes
+5. Highlight the name of the currently edited note in the sidebar
+
+TO SEE APP in browser:
+$ npm start
