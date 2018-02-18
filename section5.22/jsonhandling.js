@@ -53,7 +53,7 @@ function getUsername() {
         if (obj.message == "Not Found") {
         //Hide Loading Gif
         document.getElementById("loader").style = "display: none";
-        document.getElementById("warning").innerText = "Sorry, user not found. Try again.";
+        document.getElementById("warning").innerHTML = "Sorry, user not found. Try again. <br><br>";
       } else {
         //Hide Loading Gif
         document.getElementById("loader").style = "display: none";
@@ -125,7 +125,7 @@ function showFollowers(url) {
 		document.getElementById("followers_avatar").innerText = "";
 		obj.forEach(function(item,index) {
 			var span = document.createElement("span");
-			span.innerHTML = '<a href="http://www.github.com/'+ obj[index].login + '" target="_blank">' + '<img src="' + obj[index].avatar_url + '" id="f-icon" width=6% height=6% alt="follower avatar" hspace=1%/>';
+			span.innerHTML = '<a href="http://www.github.com/'+ obj[index].login + '" target="_blank">' + '<img src="' + obj[index].avatar_url + '" id="f-icon" width=15% height=15% alt="follower avatar" hspace=1%/>';
 			document.getElementById("followers_avatar").appendChild(span);
 
 		});
@@ -151,7 +151,7 @@ function showFollowing(url) {
 		document.getElementById("following_avatar").innerText = "";
 		obj.forEach(function(item,index) {
 			var span = document.createElement("span");
-			span.innerHTML = '<a href="http://www.github.com/'+ obj[index].login + '" target="_blank">' + '<img src="' + obj[index].avatar_url + '" id="f-icon" width=6% height=6% alt="follower avatar" hspace=1%/>';
+			span.innerHTML = '<a href="http://www.github.com/'+ obj[index].login + '" target="_blank">' + '<img src="' + obj[index].avatar_url + '" id="f-icon" width=15% height=15% alt="follower avatar" hspace=1%/>';
 			document.getElementById("following_avatar").appendChild(span);
 		});
 	})
