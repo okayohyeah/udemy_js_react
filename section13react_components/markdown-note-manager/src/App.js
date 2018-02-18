@@ -6,10 +6,19 @@ import Editor from './components/Editor';
 class App extends Component {
   constructor() {
     super();
-    this.change = this.change.bind(this);
+    this.state = {
+      notes: []
+    };
+    this.saveNote = this.saveNote.bind(this);
   }
-  change() {
-    console.log('changed!');
+
+  saveNote(notes) {
+    console.log('saved!');
+    var i = 0;
+    i++;
+    var note_key = "note" + i;
+    localStorage.setItem(note_key, notes);
+    console.log(note_key, notes)
   }
 
   render() {
@@ -18,8 +27,8 @@ class App extends Component {
         <h1>Mark It Down</h1>
         <h3>Your friendly Markdown Editor</h3>
         <div className="row">  
-          <Sidebar />
-          <Editor change={this.change} />
+          <Sidebar  />
+          <Editor change={this.saveNote} />
         </div>
       </div>
     );

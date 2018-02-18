@@ -5,21 +5,16 @@ class Editor extends Component {
   render() {
     return (
       <div className="editor column column-75">
-        <SimpleMDE
-          onChange={this.props.change}
-          value="Hi! Let's start writing."
+        <SimpleMDE 
           options={{
             autofocus: true,
-            autosave: {
-              enabled: true,
-              uniqueID: 'md1&edit!n0w',
-              delay: 2000
-            },
             indentWithTabs: true,
             lineWrapping: true,
-            spellChecker: true
-          }} 
-
+            placeholder: "Ready, get set...markdown!",
+            spellChecker: true,
+            toolbar: ["bold", "italic", "strikethrough", "|", "heading-1", "heading-2", "heading-3", "|", "quote", "code", "unordered-list", "ordered-list", "|", "link", "image", "|", "table", "horizontal-rule", "|", "preview", "side-by-side", "fullscreen", "|", "guide"]
+          }}
+          onChange={this.props.change}
         />
       </div>
     );
